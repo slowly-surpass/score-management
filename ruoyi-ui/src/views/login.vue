@@ -2,11 +2,28 @@
   <div class="login">
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form">
       <h3 class="title">学生成绩管理系统</h3>
+
+       <el-form-item label='请选择身份' prop='identify'>
+        <el-select v-model="loginForm.identify" placeholder="请选择" >
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+           </el-option>
+        </el-select>
+       </el-form-item>
+
       <el-form-item prop="username">
-        <el-input v-model="loginForm.username" type="text" auto-complete="off" placeholder="账号">
+        <el-input
+          v-model="loginForm.username"
+          type="text"
+          auto-complete="off"
+          placeholder="账号">
           <svg-icon slot="prefix" icon-class="user" class="el-input__icon input-icon" />
         </el-input>
       </el-form-item>
+
       <el-form-item prop="password">
         <el-input
           v-model="loginForm.password"
@@ -17,6 +34,7 @@
         >
           <svg-icon slot="prefix" icon-class="password" class="el-input__icon input-icon" />
         </el-input>
+
       </el-form-item>
       <el-form-item prop="code">
         <el-input
@@ -32,6 +50,7 @@
           <img :src="codeUrl" @click="getCode" class="login-code-img"/>
         </div>
       </el-form-item>
+
       <el-checkbox v-model="loginForm.rememberMe" style="margin:0px 0px 25px 0px;">记住密码</el-checkbox>
       <el-form-item style="width:100%;">
         <el-button
@@ -48,7 +67,7 @@
     </el-form>
     <!--  底部  -->
     <div class="el-login-footer">
-      <span>Copyright © 2018-2020 ruoyi.vip All Rights Reserved.</span>
+      <span>Copyright © 2018-2020 score-management All Rights Reserved.</span>
     </div>
   </div>
 </template>
@@ -67,10 +86,25 @@ export default {
       loginForm: {
         username: "admin",
         password: "admin123",
+        identify: "",
         rememberMe: false,
         code: "",
         uuid: ""
       },
+
+      //添加一个登陆的身份，判断是老师还是学生
+      options: [{
+        value: '选项1',
+        label: '学生'
+      },{
+        value: '选项2',
+        label: '老师'
+      },{
+        value: '选项3',
+        label: '管理员',
+      }
+      ],
+
       loginRules: {
         username: [
           { required: true, trigger: "blur", message: "用户名不能为空" }
@@ -92,27 +126,35 @@ export default {
       immediate: true
     }
   },
+
+  //页面加载的时候就先执行获取二维码的操作以及获取登录名和密码的操作，从cookie中拿到登录信息
   created() {
     this.getCode();
     this.getCookie();
   },
+
   methods: {
+    //获取验证码
     getCode() {
       getCodeImg().then(res => {
         this.codeUrl = "data:image/gif;base64," + res.img;
         this.loginForm.uuid = res.uuid;
       });
     },
+
+    //获取登录信息
     getCookie() {
       const username = Cookies.get("username");
       const password = Cookies.get("password");
-      const rememberMe = Cookies.get('rememberMe')
+      const rememberMe = Cookies.get('rememberMe');
       this.loginForm = {
         username: username === undefined ? this.loginForm.username : username,
         password: password === undefined ? this.loginForm.password : decrypt(password),
         rememberMe: rememberMe === undefined ? false : Boolean(rememberMe)
       };
     },
+
+    //点击登录按钮开始实现登录功能
     handleLogin() {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
@@ -120,15 +162,20 @@ export default {
           if (this.loginForm.rememberMe) {
             Cookies.set("username", this.loginForm.username, { expires: 30 });
             Cookies.set("password", encrypt(this.loginForm.password), { expires: 30 });
+            Cookies.set("identify",this.loginForm.identify, { expires: 30 });
             Cookies.set('rememberMe', this.loginForm.rememberMe, { expires: 30 });
-          } else {
+          }
+          else {
             Cookies.remove("username");
             Cookies.remove("password");
             Cookies.remove('rememberMe');
           }
-          this.$store.dispatch("Login", this.loginForm).then(() => {
-            this.$router.push({ path: this.redirect || "/" }).catch(()=>{});
-          }).catch(() => {
+          this.$store.dispatch("Login", this.loginForm)
+          .then(() => {
+            this.$router.push({ path: this.redirect || "/" })
+            .catch(()=>{});
+          })
+          .catch(() => {
             this.loading = false;
             this.getCode();
           });
