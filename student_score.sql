@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2021-01-04 21:08:56
+Date: 2021-01-05 21:05:50
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -28,7 +28,10 @@ CREATE TABLE `class` (
 -- ----------------------------
 -- Records of class
 -- ----------------------------
+INSERT INTO `class` VALUES ('ERDSAA', '人工智能');
 INSERT INTO `class` VALUES ('QAZ123', '数据结构');
+INSERT INTO `class` VALUES ('QES231', '计算方法');
+INSERT INTO `class` VALUES ('TSG100', '大学物理');
 
 -- ----------------------------
 -- Table structure for `stu`
@@ -49,7 +52,10 @@ CREATE TABLE `stu` (
 -- ----------------------------
 -- Records of stu
 -- ----------------------------
+INSERT INTO `stu` VALUES ('2017040284', '文一如', '女', '计科1702', '计算机科学与技术', '18304843222', '111111', '信息学院');
+INSERT INTO `stu` VALUES ('2017040307', '周梦', '女', '计科1702', '计算机科学与技术', '18867432455', '000000', '信息学院');
 INSERT INTO `stu` VALUES ('2017040308', '郑晓溪', '女', '计科1702', '计算机科学与技术', '18810922222', '123456', '信息学院');
+INSERT INTO `stu` VALUES ('2017040320', '叶黎', '女', '计科1703', '计算机科学与技术', '18801222222', '123456', '信息学院');
 
 -- ----------------------------
 -- Table structure for `stu_classs`
@@ -70,7 +76,9 @@ CREATE TABLE `stu_classs` (
 -- ----------------------------
 -- Records of stu_classs
 -- ----------------------------
+INSERT INTO `stu_classs` VALUES ('2017040307', 'QAZ123', '2019-2020', '1', '50');
 INSERT INTO `stu_classs` VALUES ('2017040308', 'QAZ123', '2019-2020', '1', '95');
+INSERT INTO `stu_classs` VALUES ('2017040320', 'ERDSAA', '2020-2021', '1', '90');
 
 -- ----------------------------
 -- Table structure for `teacher`
@@ -88,6 +96,8 @@ CREATE TABLE `teacher` (
 -- Records of teacher
 -- ----------------------------
 INSERT INTO `teacher` VALUES ('19980381729', '张伟', '123455', '18812321245');
+INSERT INTO `teacher` VALUES ('19993727822', '陈婧婧', '536223', '19837362749');
+INSERT INTO `teacher` VALUES ('20001231341', '胡欣欣', '123123', '18810927767');
 
 -- ----------------------------
 -- Table structure for `tea_classs`
@@ -108,3 +118,4 @@ CREATE TABLE `tea_classs` (
 -- Records of tea_classs
 -- ----------------------------
 INSERT INTO `tea_classs` VALUES ('19980381729', 'QAZ123', '2019-2020', '1');
+INSERT INTO `tea_classs` VALUES ('20001231341', 'QAZ123', '2020-2021', '0');
