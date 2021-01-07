@@ -1,8 +1,8 @@
 <template>
   <el-alert
-    title="消息提示的文案"
+    title="申诉查询"
     type="info"
-    description="文字说明文字说明文字说明文字说明文字说明文字说明"
+    description="截止到目前为止，你已经提交了如下的申诉"
     show-icon>
   </el-alert>
 </template>

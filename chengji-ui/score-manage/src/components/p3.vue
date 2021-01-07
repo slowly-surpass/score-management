@@ -1,7 +1,13 @@
 <template>
-  <div class="top">
-  <h3>p3</h3>
-  </div>
+<div>
+  <el-alert
+    title="学习情况"
+    type="info"
+    description="截止到目前为止，您的学习情况如下所示"
+    show-icon>
+  </el-alert>
+  <div ref='mychart' style="width: 600px;height: 400px"></div>
+</div>
 </template>
 
 <script>
@@ -15,7 +21,9 @@ export default {
     }
 
   },
-
+mounted() {
+  this.setChart()
+  }
 }
 </script>
 

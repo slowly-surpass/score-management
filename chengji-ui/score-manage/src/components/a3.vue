@@ -2,7 +2,7 @@
   <el-alert
     title="申诉情况查看"
     type="info"
-    :description="item.description"
+    description="截止到目前为止，您的申诉情况如下"
     show-icon>
   </el-alert>
 </template>
@@ -14,13 +14,7 @@ export default {
   data() {
 
     return {
-      item: [
-        {
-        id: 1,
-        total: 500,
-        description: "截至到目前为止，一共收到"+ total + "条申诉",
-        }
-    ]
+
     }
 
   },

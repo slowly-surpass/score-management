@@ -15,13 +15,13 @@
         </el-select>
       </el-form-item>
 
-      <el-form-item prop="username">
+      <el-form-item prop="userid">
         <el-input
-          v-model="loginForm.username"
+          v-model="loginForm.userid"
           type="text"
           auto-complete="off"
           placeholder="账号">
-          <svg-icon slot="prefix" icon-class="user" class="el-input__icon input-icon" />
+          <i class="el-icon-user-solid"></i>
         </el-input>
       </el-form-item>
 
@@ -33,7 +33,7 @@
           placeholder="密码"
           @keyup.enter.native="handleLogin"
         >
-          <el-icon-user-solid slot="prefix" icon-class="password" class="el-input__icon input-icon" />
+         <i class="el-icon-delete"></i>
         </el-input>
 
       </el-form-item>
@@ -43,7 +43,7 @@
           :loading="loading"
           size="medium"
           type="primary"
-          @click.native.prevent="handleLogin"
+          @click.native="handleLogin"
         >
           <span v-if="!loading">登 录</span>
           <span v-else>登 录 中...</span>
@@ -68,20 +68,20 @@ export default {
     return {
 
       loginForm: {
-        username: "admin",
+        userid: "admin",
         password: "admin123",
         identify: "",
       },
 
       //添加一个登陆的身份，判断是老师还是学生
       options: [{
-        value: '选项1',
+        value: '1',
         label: '学生'
       },{
-        value: '选项2',
+        value: '2',
         label: '老师'
       },{
-        value: '选项3',
+        value: '3',
         label: '管理员',
       }
       ],
@@ -99,6 +99,8 @@ export default {
       loading: false,
       redirect: undefined
     };
+
+
   },
 
 
@@ -111,7 +113,24 @@ export default {
     //获取验证
     //点击登录按钮开始实现登录功能
     handleLogin() {
-          //请求接口之后跳转页面
+          //请求接口之后跳转页面，并且验证账号密码是否一致,不加this会报错不生效
+          console.log(this.loginForm.identify,'identify')
+          console.log(this.loginForm.userid,'username')
+          console.log(this.loginForm.password,'password')
+          console.log('1111')
+          if(this.loginForm.identify == '1'){
+            this.$router.push('/stugui');
+          }
+
+          if(this.loginForm.identify == '2'){
+            this.$router.push('/teagui')
+          }
+
+          if(this.loginForm.identify == '3'){
+            this.$router.push('/admgui')
+          }
+
+
     }
   }
 };
