@@ -1,7 +1,10 @@
 <template>
-  <div class="top">
-  <h3>p4</h3>
-  </div>
+  <el-alert
+    title="消息提示的文案"
+    type="info"
+    description="文字说明文字说明文字说明文字说明文字说明文字说明"
+    show-icon>
+  </el-alert>
 </template>
 
 <script>

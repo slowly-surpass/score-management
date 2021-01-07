@@ -23,10 +23,12 @@
     <el-container>
       <el-aside class="aside" style="width: 206px;" >
         <el-menu
-          default-active="2"
+          :default-active="$router.path"
+          :unique-opened='true'
           class="el-menu-vertical-demo"
           @open="handleOpen"
           @close="handleClose"
+          @select="handleSelect"
           background-color="#545c64"
           text-color="#fff"
           active-text-color="#ffd04b"
@@ -39,8 +41,8 @@
             </template>
 
             <el-menu-item-group >
-              <el-menu-item index="1-1">修改密码</el-menu-item>
-              <el-menu-item index="1-2">个人信息</el-menu-item>
+              <el-menu-item index="1-1"><i class="el-icon-view"></i>修改密码</el-menu-item>
+              <el-menu-item index="1-2"><i class="el-icon-edit-outline"></i>个人信息</el-menu-item>
             </el-menu-item-group>
 
           </el-submenu>
@@ -51,10 +53,10 @@
               <i class="el-icon-document"></i>
               <span>信息录入</span>
             </template>
-            
+
             <el-menu-item-group>
-              <el-menu-item index="2-1">学生录入</el-menu-item>
-              <el-menu-item index="2-2">老师录入</el-menu-item>
+              <el-menu-item index="2-1"><i class="el-icon-timer"></i>学生录入</el-menu-item>
+              <el-menu-item index="2-2"><i class="el-icon-service"></i>老师录入</el-menu-item>
             </el-menu-item-group>
 
           </el-submenu>
@@ -88,9 +90,22 @@ export default {
         this.$router.push({ path: "/" });
       });
     },
+    handleSelect(path){
+      //path为当前选中标签的index,之前的路径设置为叠加形式，这样的话在router中就能实现path不加/
+      this.$router.push('/admgui/' + path)
+      console.log(path,'router.path')
+
+    },
+    handleOpen(key, keyPath) {
+      console.log(key, keyPath);
+    },
+    handleClose(key, keyPath) {
+      console.log(key, keyPath);
+    },
   },
 };
 </script>
+
 <style scoped>
 .container {
 

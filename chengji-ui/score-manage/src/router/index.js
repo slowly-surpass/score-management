@@ -29,7 +29,37 @@ export default new Router({
     {
       path: '/admgui',
       name: 'admgui',
-      component: admgui
+      component: admgui,
+      children: [
+
+        {
+          path: '1-1',
+          name: 'a11',
+          component:  () => import('@/components/a11.vue')
+        },
+        {
+          path: '1-2',
+          name: 'a12',
+          component:  () => import('@/components/a12.vue')
+        },
+        {
+          path: '2-1',
+          name: 'a21',
+          component:  () => import('@/components/a21.vue')
+        },
+        {
+          path: '2-2',
+          name: 'a22',
+          component:  () => import('@/components/a22.vue')
+        },
+
+        {
+          path: '3',
+          name: 'a3',
+          component:  () => import('@/components/a3.vue')
+        },
+
+    ]
     },
     {
       path: '/stugui',
