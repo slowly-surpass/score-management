@@ -21,7 +21,7 @@
     </el-header>
 
     <el-container>
-      <el-aside class="aside">
+      <el-aside class="aside" style="width: 206px;">
         <el-menu
           :default-active="$router.path"
           :unique-opened='true'
@@ -41,9 +41,12 @@
             </template>
 
             <el-menu-item-group >
-              <el-menu-item index="1-1">修改密码</el-menu-item>
-              <el-menu-item index="1-2">查询课程</el-menu-item>
-              <el-menu-item index="1-3">个人信息</el-menu-item>
+              <el-menu-item index="1-1">
+                <i class="el-icon-view"></i>修改密码</el-menu-item>
+              <el-menu-item index="1-2">
+                <i class="el-icon-date"></i>查询课程</el-menu-item>
+              <el-menu-item index="1-3">
+                <i class="el-icon-edit-outline"></i>个人信息</el-menu-item>
             </el-menu-item-group>
 
           </el-submenu>
@@ -55,8 +58,10 @@
               <span>成绩查询</span>
             </template>
             <el-menu-item-group>
-              <el-menu-item index="2-1">按学期查询</el-menu-item>
-              <el-menu-item index="2-2">按课程查询</el-menu-item>
+              <el-menu-item index="2-1">
+                <i class="el-icon-timer"></i>按学期查询</el-menu-item>
+              <el-menu-item index="2-2">
+                <i class="el-icon-service"></i>按课程查询</el-menu-item>
             </el-menu-item-group>
 
           </el-submenu>
@@ -97,6 +102,7 @@ export default {
       });
     },
     handleSelect(path){
+      //path为当前选中标签的index,之前的路径设置为叠加形式，这样的话在router中就能实现path不加/
       this.$router.push('/stugui/' + path)
       console.log(path,'router.path')
 
@@ -114,7 +120,6 @@ export default {
 </script>
 <style scoped>
 .container {
-  height: 100vh;
   font-size: 15px;
 }
 .header {
@@ -137,5 +142,9 @@ export default {
 .rightsection {
   line-height: 60px;
   text-align: center;
+}
+.el-menu-vertical-demo {
+  height: 100vh;
+
 }
 </style>

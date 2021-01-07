@@ -13,15 +13,15 @@
         </el-col>
         <el-col :span="8" class="rightsection">
           <div class="grid-content bg-purple-light">
-            <span class="el-dropdown-link userinfo-inner">欢迎您，学生</span>
-            <span class="userinfo-inner" @click="signout">退出</span>
+            <span class="el-dropdown-link userinfo-inner">欢迎您，管理员</span>
+            <el-button size="mini" class="userinfo-inner" @click="signout">退出</el-button>
           </div>
         </el-col>
       </el-row>
     </el-header>
 
     <el-container>
-      <el-aside class="aside">
+      <el-aside class="aside" style="width: 206px;" >
         <el-menu
           default-active="2"
           class="el-menu-vertical-demo"
@@ -40,8 +40,7 @@
 
             <el-menu-item-group >
               <el-menu-item index="1-1">修改密码</el-menu-item>
-              <el-menu-item index="1-2">查询课程</el-menu-item>
-              <el-menu-item index="1-3">个人信息</el-menu-item>
+              <el-menu-item index="1-2">个人信息</el-menu-item>
             </el-menu-item-group>
 
           </el-submenu>
@@ -50,23 +49,19 @@
 
             <template slot="title">
               <i class="el-icon-document"></i>
-              <span>成绩查询</span>
+              <span>信息录入</span>
             </template>
+            
             <el-menu-item-group>
-              <el-menu-item index="2-1">按学期查询</el-menu-item>
-              <el-menu-item index="2-2">按课程查询</el-menu-item>
+              <el-menu-item index="2-1">学生录入</el-menu-item>
+              <el-menu-item index="2-2">老师录入</el-menu-item>
             </el-menu-item-group>
 
           </el-submenu>
 
-          <el-menu-item index="3" >
-            <i class="el-icon-s-marketing"></i>
-            <span slot="title">学习情况</span>
-          </el-menu-item>
-
-          <el-menu-item index="4">
+          <el-menu-item index="3">
             <i class="el-icon-edit"></i>
-            <span slot="title">申诉查询</span>
+            <span slot="title">申诉情况</span>
           </el-menu-item>
         </el-menu>
       </el-aside>
@@ -98,7 +93,7 @@ export default {
 </script>
 <style scoped>
 .container {
-  height: 100vh;
+
   font-size: 15px;
 }
 .header {
@@ -108,6 +103,7 @@ export default {
 .aside {
   background: #3a3a3a;
   color: #fff;
+  height: 100vh;
   /* height: 100%; */
 }
 .main {

@@ -52,7 +52,27 @@ export default new Router({
           name: 'p13',
           component:  () => import('@/components/p13.vue')
         },
+        {
+          path: '2-1',
+          name: 'p21',
+          component:  () => import('@/components/p21.vue')
+        },
+        {
+          path: '2-2',
+          name: 'p22',
+          component:  () => import('@/components/p22.vue')
+        },
 
+        {
+          path: '3',
+          name: 'p3',
+          component:  () => import('@/components/p3.vue')
+        },
+        {
+          path: '4',
+          name: 'p4',
+          component:  () => import('@/components/p4.vue')
+        },
     ]
     },
 
@@ -90,6 +110,16 @@ export default new Router({
           path: '2-3',
           name: 't23',
           component:  () => import('@/components/t23.vue')
+        },
+        {
+          path: '3',
+          name: 't3',
+          component: () => import('@/components/t3.vue')
+        },
+        {
+          path: '4',
+          name: 't4',
+          component: () => import('@/components/t4.vue')
         },
     ]
 

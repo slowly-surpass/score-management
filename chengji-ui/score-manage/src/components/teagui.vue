@@ -20,8 +20,8 @@
       </el-row>
     </el-header>
 
-    <el-container>
-      <el-aside class="aside">
+    <el-container >
+      <el-aside class="aside" style="width: 206px;">
         <el-menu
           :default-active="$router.path"
           :unique-opened='true'
@@ -41,9 +41,13 @@
             </template>
 
             <el-menu-item-group >
-              <el-menu-item index="1-1">修改密码</el-menu-item>
-              <el-menu-item index="1-2">查询课程</el-menu-item>
-              <el-menu-item index="1-3">个人信息</el-menu-item>
+
+              <el-menu-item index="1-1">
+                <i class="el-icon-view"></i>修改密码</el-menu-item>
+              <el-menu-item index="1-2">
+                <i class="el-icon-date"></i>查询课程</el-menu-item>
+              <el-menu-item index="1-3">
+                <i class="el-icon-edit-outline"></i>个人信息</el-menu-item>
             </el-menu-item-group>
 
           </el-submenu>
@@ -54,9 +58,12 @@
               <span>成绩管理</span>
             </template>
             <el-menu-item-group>
-              <el-menu-item index="2-1">查询成绩</el-menu-item>
-              <el-menu-item index="2-2">新增成绩</el-menu-item>
-              <el-menu-item index="2-3">修改成绩</el-menu-item>
+              <el-menu-item index="2-1">
+                <i class="el-icon-document"></i>查询成绩</el-menu-item>
+              <el-menu-item index="2-2">
+                <i class="el-icon-folder-add"></i>新增成绩</el-menu-item>
+              <el-menu-item index="2-3">
+                <i class="el-icon-finished"></i>修改成绩</el-menu-item>
             </el-menu-item-group>
 
           </el-submenu>
@@ -113,28 +120,35 @@ export default {
 </script>
 <style scoped>
 .container {
-  height: 100vh;
+
   font-size: 15px;
+  border-radius: 3px;
 }
 .header {
-  background: #212121;
+  background: #2C3E50;
+  border-radius: 3px;
   color: #fff;
 }
 .aside {
   background: #3a3a3a;
   color: #fff;
+  border-radius: 3px;
+  width: 200px
   /* height: 100%; */
 }
 .main {
   /* height: 100%; */
   color: #212121;
+  border-radius: 3px;
 }
 .headerlogo {
   line-height: 60px;
-  margin-top: 10px;
 }
 .rightsection {
   line-height: 60px;
   text-align: center;
+}
+.el-menu-vertical-demo {
+  height: 100vh;
 }
 </style>

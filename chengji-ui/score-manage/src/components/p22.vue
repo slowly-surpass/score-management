@@ -4,9 +4,9 @@
   <el-main>
     <el-row>
       <el-col :span="12">
-        <el-select v-model="yearvalue" placeholder="请选择学年">
+        <el-select v-model="yearvalue" placeholder="请选择课程">
           <el-option
-            v-for="item in year"
+            v-for="item in classname"
             :key="item.value"
             :label="item.label"
             :value="item.value">
@@ -118,7 +118,7 @@
 
 <script>
 export default {
-  name: 'p21',
+  name: 'p22',
 
   methods: {
       handleClick(row) {
@@ -127,21 +127,21 @@ export default {
     },
     data() {
       return {
-        year: [{
+        classname: [{
           value: '全部',
           label: '全部'
         }, {
-          value: '2017-2018',
-          label: '2017-2018'
+          value: '数据结构',
+          label: '数据结构'
         }, {
-          value: '2018-2019',
-          label: '2018-2019'
+          value: '',
+          label: ''
         }, {
-          value: '2019-2020',
-          label: '2019-2020'
+          value: '',
+          label: ''
         }, {
-          value: '2020-2021',
-          label: '2020-2021'
+          value: '',
+          label: ''
         }],
         yearvalue: '',
         term: [{
