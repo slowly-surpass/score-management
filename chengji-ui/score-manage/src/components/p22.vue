@@ -134,14 +134,14 @@ export default {
           value: '数据结构',
           label: '数据结构'
         }, {
-          value: '',
-          label: ''
+          value: '计算机网络',
+          label: '计算机网络'
         }, {
-          value: '',
-          label: ''
+          value: '编译原理',
+          label: '编译原理'
         }, {
-          value: '',
-          label: ''
+          value: '数据库原理',
+          label: '数据库原理'
         }],
         yearvalue: '',
         term: [{

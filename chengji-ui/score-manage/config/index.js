@@ -10,7 +10,17 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+        '/api': {  // 意思是当请求是以 dev-api 开头的请求，都走代理
+          // 目标服务器地址，代理访问：http://localhost:8001
+          target: 'http://8.131.98.159:3000',
+          changeOrigin: true,   // 开启代理服务器，就会给你代理转发
+          pathRewrite: {
+          // /dev-api/db.json 最终会转发到 http://localhost:8001/db.json
+          '^/api': '/api',  // 就是将请求地址中的 /api 前缀替换成空的
+          }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

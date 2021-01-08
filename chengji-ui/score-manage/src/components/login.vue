@@ -33,7 +33,7 @@
           placeholder="密码"
           @keyup.enter.native="handleLogin"
         >
-         <i class="el-icon-delete"></i>
+        <i class="el-icon-delete"></i>
         </el-input>
 
       </el-form-item>
@@ -60,8 +60,12 @@
 </template>
 
 <script>
+import { login_stu } from '@/api/login'
+import { login_tea } from '@/api/login'
+import { login_adm } from '@/api/login'
 
 export default {
+
   name: "Login",
 
   data() {
@@ -117,9 +121,16 @@ export default {
           console.log(this.loginForm.identify,'identify')
           console.log(this.loginForm.userid,'username')
           console.log(this.loginForm.password,'password')
-          console.log('1111')
+
           if(this.loginForm.identify == '1'){
-            this.$router.push('/stugui');
+            //调取接口
+            login_stu(this.loginForm.userid,this.loginForm.password).then(
+              res => {
+                console.log(res)
+                this.$router.push('/stugui');
+              }
+            )
+
           }
 
           if(this.loginForm.identify == '2'){
