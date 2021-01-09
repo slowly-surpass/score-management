@@ -9,6 +9,7 @@ import teagui from '@/components/teagui'
 
 Vue.use(Router)
 
+
 export default new Router({
 
   mode: 'history', // 去掉url中的#

@@ -17,6 +17,7 @@ let echarts = require('echarts/lib/echarts')
 // 引入柱状图组件
 require('echarts/lib/chart/bar')
 require('echarts/lib/chart/pie')
+require('echarts/lib/chart/line')
 // 引入提示框和title组件
 require('echarts/lib/component/tooltip')
 require('echarts/lib/component/title')
@@ -49,7 +50,7 @@ mounted() {
       //  that.$http.post('接口地址',{
       //           //参数
       //       }).then(res=>{
-        
+
         // 绘制图表
         myChart.setOption({
             text: '学习情况' ,
@@ -99,7 +100,7 @@ mounted() {
         },
         series: [
             {
-                name: '访问来源',
+                name: '数据占比',
                 type: 'pie',
                 radius: '70%',
                 center: ['50%', '60%'],

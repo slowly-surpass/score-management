@@ -4,7 +4,7 @@
   <el-main>
     <el-row>
       <el-col :span="12">
-        <el-select v-model="yearvalue" placeholder="请选择课程">
+        <el-select v-model="coursevalue" placeholder="请选择课程">
           <el-option
             v-for="item in classname"
             :key="item.value"
@@ -13,16 +13,7 @@
           </el-option>
         </el-select>
       </el-col>
-      <el-col :span="12">
-        <el-select v-model="termvalue" placeholder="请选择学期">
-          <el-option
-            v-for="item in term"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value">
-          </el-option>
-        </el-select>
-      </el-col>
+    <el-button @click="select">查询</el-button>
     </el-row>
   </el-main>
   <el-table
@@ -30,7 +21,7 @@
     border
     style="width: 100%"
     max-height="500"
-    :default-sort = "{prop: 'date', order: 'descending'}">
+    :default-sort = "{prop: 'year', order: 'descending'}">
     <el-table-column
       prop="year"
       label="学年"
@@ -109,7 +100,7 @@
       label="操作"
       width="50">
       <template slot-scope="scope">
-        <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
+        <el-button @click="handleComplain(scope.row)" type="text" size="small">申诉</el-button>
       </template>
     </el-table-column>
   </el-table>
@@ -121,8 +112,14 @@ export default {
   name: 'p22',
 
   methods: {
-      handleClick(row) {
+      handleComplain(row) {
+        //会打印出这一行的所有信息，可以根据挑选来传参，通过row.的方式
         console.log(row);
+        console.log(row.sno,'sno');
+      },
+      select(){
+        console.log(this.coursevalue,'course');
+        //调取接口获取数据放入tdata中，然后赋值给tabledata
       }
     },
     data() {
@@ -143,21 +140,8 @@ export default {
           value: '数据库原理',
           label: '数据库原理'
         }],
-        yearvalue: '',
-        term: [{
-          value: '全部',
-          label: '全部'
-        }, {
-          value: '1',
-          label: '1'
-        }, {
-          value: '2',
-          label: '2'
-        }, {
-          value: '3',
-          label: '3'
-        }],
-        termvalue: '',
+        coursevalue: '',
+        tdata: [],
         tableData: [{
           year: '2020-2021',
           term: '1',
@@ -171,7 +155,22 @@ export default {
           college: '信息科学与技术学院',
           pro: '计算机科学与技术',
           class: '计科1702',
-        }],
+        },
+        {
+          year: '2020-2021',
+          term: '1',
+          classno: 'zxcv',
+          classname: '数据结构',
+          point: '3.5',
+          score: '95',
+          jidian: '4.33',
+          sno: '2017040310',
+          name: '徐超',
+          college: '信息科学与技术学院',
+          pro: '计算机科学与技术',
+          class: '计科1702',
+        }
+        ],
         fits: 'fill',
         url: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg'
       }

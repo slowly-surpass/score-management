@@ -104,8 +104,11 @@ export default {
     },
 
     handleSelect(path){
-      this.$router.push('/teagui/' + path)
-      console.log(path,'router.path')
+      this.$router.push('/teagui/' + path).catch(err => {
+        console.log('输出报错',err)
+        console.log(path,'router.path')
+})
+
 
     },
     handleOpen(key, keyPath) {

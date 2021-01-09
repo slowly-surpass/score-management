@@ -119,7 +119,7 @@ export default {
     handleLogin() {
           //请求接口之后跳转页面，并且验证账号密码是否一致,不加this会报错不生效
           console.log(this.loginForm.identify,'identify')
-          console.log(this.loginForm.userid,'username')
+          console.log(this.loginForm.userid,'userid')
           console.log(this.loginForm.password,'password')
 
           if(this.loginForm.identify == '1'){
@@ -127,18 +127,71 @@ export default {
             login_stu(this.loginForm.userid,this.loginForm.password).then(
               res => {
                 console.log(res)
-                this.$router.push('/stugui');
+                //是否登陆成功
+                if(res.data.status == 1) {
+                    this.$message({
+                    showClose: true,
+                    message: '恭喜你，登录成功',
+                    type: 'success'
+                });
+                  this.$router.push('/stugui');
+                }
+                else {
+                  this.$message({
+                    showClose: true,
+                    message: res.data.error_des,
+                    type: 'error'
+                  });
+                }
               }
             )
-
           }
 
-          if(this.loginForm.identify == '2'){
-            this.$router.push('/teagui')
+          if(this.loginForm.identify == '2') {
+            //调取接口
+            login_stu(this.loginForm.userid,this.loginForm.password).then(
+              res => {
+                console.log(res)
+                if(res.data.status == 1) {
+                    this.$message({
+                    showClose: true,
+                    message: '恭喜你，登录成功',
+                    type: 'success'
+                });
+                  this.$router.push('/teagui');
+                }
+                else {
+                    this.$message({
+                    showClose: true,
+                    message: res.data.error_des,
+                    type: 'error'
+                  });
+                }
+              }
+            )
           }
 
-          if(this.loginForm.identify == '3'){
-            this.$router.push('/admgui')
+          if(this.loginForm.identify == '3') {
+            login_stu(this.loginForm.userid,this.loginForm.password).then(
+              res => {
+                console.log(res)
+                if(res.data.status == 1) {
+                    this.$message({
+                    showClose: true,
+                    message: '恭喜你，登录成功',
+                    type: 'success'
+                });
+                  this.$router.push('/teagui');
+                }
+                else {
+                    this.$message({
+                    showClose: true,
+                    message: res.data.error_des,
+                    type: 'error'
+                  });
+                }
+              }
+            )
           }
 
 

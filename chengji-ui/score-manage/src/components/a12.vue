@@ -33,6 +33,7 @@ export default {
     }
   },
   created() {
+    //调取接口获取数据
     this.admname = this.$root.admname
     this.phone = this.$root.phone
     this.email = this.$root.email

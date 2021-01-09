@@ -103,8 +103,11 @@ export default {
     },
     handleSelect(path){
       //path为当前选中标签的index,之前的路径设置为叠加形式，这样的话在router中就能实现path不加/
-      this.$router.push('/stugui/' + path)
-      console.log(path,'router.path')
+      this.$router.push('/stugui/' + path).catch(err => {
+        console.log(path,'router.path')
+        console.log('输出报错',err)
+})
+
 
     },
     handleOpen(key, keyPath) {

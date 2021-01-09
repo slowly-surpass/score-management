@@ -8,7 +8,7 @@ import axios from 'axios'
 // axios.defaults.baseURL = 'http://8.131.98.159:3000';   //配置接口地址
 // 请求拦截器
 const request = axios.create({
-  // baseURL: 'http://8.131.98.159:3000',   // 基础路径，默认是/ ，如果改了，会自动添加到你请求url前面
+  // baseURL: 'http://8.131.98.159:3000',  //这句话加上就没办法访问
   timeout: 3000 ,  // 请求超时，3000毫秒
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded',

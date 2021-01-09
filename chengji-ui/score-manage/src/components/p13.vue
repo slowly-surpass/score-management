@@ -42,11 +42,7 @@ export default {
     }
   },
   created() {
-    this.stuname = this.$root.stuname
-    this.sno = this.$root.sno
-    this.college = this.$root.college
-    this.pro = this.$root.pro
-    this.class = this.$root.class
+    //调取接口获取数据
   }
 }
 </script>
