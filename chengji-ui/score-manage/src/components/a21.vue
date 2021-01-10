@@ -10,7 +10,7 @@
 		    :limit="limitUpload"
 		    accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel"
 		    :auto-upload="false">
-		<el-button size="big" type="primary">点击上传</el-button>
+		<el-button style='margin-left: 20px;'>上传文件<i class="el-icon-upload el-icon--right"></i></el-button>
 		</el-upload>
   <el-alert
     title="注意此处只能上传 xlsx / xls 类型的文件"
@@ -19,7 +19,13 @@
   </el-alert>
 		<!-- 数据展示 -->
 		  <el-main>
-		      <el-table :data="da">
+         <el-button  @click="handlePush">录入数据库<i class="el-icon-upload el-icon--right"></i></el-button>
+		      <el-table
+            ref='multipleTable'
+            :data="da"
+            style='width:100%'
+            @selection-change="handleSelectionChange"
+          >
 		        <el-table-column
               prop="sno"
               label="学号"
@@ -84,7 +90,8 @@
 				fileTemp:null,
 				file:null,
 				da:[],
-				dalen:0
+				dalen:0,
+        multipleSelection: [],
 			};
 		},
 		methods:{
@@ -189,7 +196,17 @@
 			    } else {
 			        reader.readAsBinaryString(f);
 			    }
-			}
+			},
+ //多选或者选中某一行，通过调取接口完成成绩上传
+      handleSelectionChange(val) {
+        this.multipleSelection = val;
+        console.log(val,'多选测试')
+      },
+      //调取接口传入数据库
+      handlePush() {
+          //调取接口将数据存入数据库,参数为multileSelection
+
+      }
 
 
 		}
