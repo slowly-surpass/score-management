@@ -1,22 +1,106 @@
 <template>
-  <div class="top">
-  <h3>t1-2</h3>
+  <div>
+  <h3>所授课程如下</h3>
+  <el-table
+    :data="tableData"
+    style="width: 100%"
+    max-height="500">
+    <el-table-column
+      prop="year"
+      label="学年"
+      sortable
+      width="120">
+    </el-table-column>
+    <el-table-column
+      prop="term"
+      sortable
+      label="学期"
+      width="120">
+    </el-table-column>
+    <el-table-column
+      prop="classno"
+      sortable
+      label="课程代号"
+      width="120">
+    </el-table-column>
+    <el-table-column
+      prop="classname"
+      sortable
+      label="课程名"
+      width="120">
+    </el-table-column>
+    <el-table-column
+      prop="point"
+      sortable
+      label="学分"
+      width="120">
+    </el-table-column>
+    <el-table-column
+      prop="sno"
+      sortable
+      label="工号"
+      width="120">
+    </el-table-column>
+    <el-table-column
+      prop="name"
+      sortable
+      label="姓名"
+      width="120">
+    </el-table-column>
+    <el-table-column
+      prop="college"
+      sortable
+      label="学院"
+      width="180">
+    </el-table-column>
+    <el-table-column
+      prop="pro"
+      sortable
+      label="专业"
+      width="180">
+    </el-table-column>
+  </el-table>
   </div>
 </template>
 
 <script>
-export default {
-  name: 't12',
+  export default {
+    name: 't12',
+    created(){
+      //在这个地方调取接口获取数据，存入tabledata中，在页面创建时就调取接口
+    },
+    data() {
+      return {
 
-  data() {
+        tableData: [
+          //调取接口从后端返回数据
+          {
+          year: '2020-2021',
+          term: '1',
+          classno: 'zxcv',
+          classname: '数据结构',
+          point: '3.5',
+          sno: '2017040310',
+          name: '徐超',
+          college: '信息科学与技术学院',
+          pro: '计算机科学与技术',
+        },{
+          year: '2020-2021',
+          term: '1',
+          classno: 'zxcv',
+          classname: '数据结构',
+          point: '3.5',
+          sno: '2017040310',
+          name: '徐超',
+          college: '信息科学与技术学院',
+          pro: '计算机科学与技术',
+        }
+        ],
+        fits: 'fill',
 
-    return {
-
+      }
     }
-
-  },
-
-}
+  }
 </script>
 
 <style>

@@ -6,7 +6,8 @@
     description="截止到目前为止，你已经提交了如下的申诉"
     show-icon>
   </el-alert>
-    <div id='myChart' style="width: 100%;height: 400px"></div>
+    <div id='myChart' style="width: 100%; height: 400px ;margin-top: 30px"></div>
+  
 </div>
 </template>
 
@@ -42,6 +43,7 @@ export default {
 
     setChart() {
         let myChart = echarts.init(document.getElementById('myChart'))
+        //调取接口获取申诉数据，申诉成功、失败、成功
         myChart.setOption({
 
             title: {
@@ -54,22 +56,22 @@ export default {
             formatter: '{a} <br/>{b} : {c} ({d}%)'
         },
         legend: {
-             orient: 'vertical',
+            orient: 'vertical',
             left: 'left',
-            data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
+            data: ['申诉成功', '待审核', '申诉失败', '搜索引擎']
         },
         series: [
             {
-                name: '访问来源',
+                name: '数据占比',
                 type: 'pie',
-                radius: '45%',
+                radius: '55%',
                 center: ['50%', '60%'],
                 data: [
-                    {value: 335, name: '直接访问'},
-                    {value: 310, name: '邮件营销'},
-                    {value: 234, name: '联盟广告'},
-                    {value: 135, name: '视频广告'},
-                    {value: 1548, name: '搜索引擎'}
+                    {value: 335, name: '申诉成功'},
+                    {},
+                    {value: 234, name: '待审核'},
+                    {value: 135, name: '申诉失败'},
+                    {}
                 ],
                 emphasis: {
                     itemStyle: {

@@ -47,12 +47,6 @@ export default new Router({
           component:  () => import('@/components/a22.vue')
         },
 
-        {
-          path: '3',
-          name: 'a3',
-          component:  () => import('@/components/a3.vue')
-        },
-
     ]
     },
     {
@@ -129,11 +123,6 @@ export default new Router({
           path: '2-2',
           name: 't22',
           component:  () => import('@/components/t22.vue')
-        },
-        {
-          path: '2-3',
-          name: 't23',
-          component:  () => import('@/components/t23.vue')
         },
         {
           path: '3',

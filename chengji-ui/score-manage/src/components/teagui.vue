@@ -3,12 +3,14 @@
     <el-header class="header">
       <el-row>
         <el-col :span="16" class="headerlogo">
-          <div class="grid-content bg-purple">
+        <div class="grid-content bg-purple" style='display:flex'>
             <img
-              style="#"
-              src=""
+              style="width:50px; height: 48px;margin-top: 3px;"
+              src="../assets/images/成绩.png"
             />
-            <span>学生成绩管理系统</span>
+            <div>
+            <span style='line-height:60px'>学生成绩管理系统</span>
+            </div>
           </div>
         </el-col>
         <el-col :span="8" class="rightsection">
@@ -59,10 +61,8 @@
             </template>
             <el-menu-item-group>
               <el-menu-item index="2-1">
-                <i class="el-icon-document"></i>查询成绩</el-menu-item>
-              <el-menu-item index="2-2">
                 <i class="el-icon-folder-add"></i>新增成绩</el-menu-item>
-              <el-menu-item index="2-3">
+              <el-menu-item index="2-2">
                 <i class="el-icon-finished"></i>修改成绩</el-menu-item>
             </el-menu-item-group>
 

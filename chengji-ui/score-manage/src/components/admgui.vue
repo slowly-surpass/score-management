@@ -3,12 +3,14 @@
     <el-header class="header">
       <el-row>
         <el-col :span="16" class="headerlogo">
-          <div class="grid-content bg-purple">
+        <div class="grid-content bg-purple" style='display:flex'>
             <img
-              style="#"
-              src=""
+              style="width:50px; height: 48px;margin-top: 3px;"
+              src="../assets/images/成绩.png"
             />
-            <span>学生成绩管理系统</span>
+            <div>
+            <span style='line-height:60px'>学生成绩管理系统</span>
+            </div>
           </div>
         </el-col>
         <el-col :span="8" class="rightsection">
@@ -61,10 +63,6 @@
 
           </el-submenu>
 
-          <el-menu-item index="3">
-            <i class="el-icon-edit"></i>
-            <span slot="title">申诉情况</span>
-          </el-menu-item>
         </el-menu>
       </el-aside>
 
@@ -113,27 +111,33 @@ export default {
 .container {
 
   font-size: 15px;
+  border-radius: 3px;
 }
 .header {
-  background: #212121;
+  background: #2C3E50;
+  border-radius: 3px;
   color: #fff;
 }
 .aside {
   background: #3a3a3a;
   color: #fff;
-  height: 100vh;
+  border-radius: 3px;
+  width: 200px
   /* height: 100%; */
 }
 .main {
   /* height: 100%; */
   color: #212121;
+  border-radius: 3px;
 }
 .headerlogo {
   line-height: 60px;
-  margin-top: 10px;
 }
 .rightsection {
   line-height: 60px;
   text-align: center;
+}
+.el-menu-vertical-demo {
+  height: 100vh;
 }
 </style>

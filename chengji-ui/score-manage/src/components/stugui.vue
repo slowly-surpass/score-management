@@ -2,13 +2,15 @@
   <el-container class="container">
     <el-header class="header">
       <el-row>
-        <el-col :span="16" class="headerlogo">
-          <div class="grid-content bg-purple">
+        <el-col :span="16">
+          <div class="grid-content bg-purple" style='display:flex'>
             <img
-              style="#"
-              src=""
+              style="width:50px; height: 48px;margin-top: 3px;"
+              src="../assets/images/成绩.png"
             />
-            <span>学生成绩管理系统</span>
+            <div>
+            <span style='line-height:60px'>学生成绩管理系统</span>
+            </div>
           </div>
         </el-col>
         <el-col :span="8" class="rightsection">
@@ -123,24 +125,29 @@ export default {
 </script>
 <style scoped>
 .container {
+
   font-size: 15px;
+  border-radius: 3px;
 }
 .header {
-  background: #212121;
+  background: #2C3E50;
+  border-radius: 3px;
   color: #fff;
 }
 .aside {
   background: #3a3a3a;
   color: #fff;
+  border-radius: 3px;
+  width: 200px
   /* height: 100%; */
 }
 .main {
   /* height: 100%; */
   color: #212121;
+  border-radius: 3px;
 }
 .headerlogo {
   line-height: 60px;
-  margin-top: 10px;
 }
 .rightsection {
   line-height: 60px;
@@ -148,6 +155,5 @@ export default {
 }
 .el-menu-vertical-demo {
   height: 100vh;
-
 }
 </style>

@@ -20,7 +20,8 @@
     "less-loader": "^5.0.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
-    "vux": "^2.9.4"
+    "vux": "^2.9.4",
+    "xlsx": "^0.16.9"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
