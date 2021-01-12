@@ -22,8 +22,8 @@ export default {
         },
         {
           id: 2,
-          type: '邮箱',
-          detail: this.email,
+          type: '工号',
+          detail: this.userid,
         },
         {
           id: 3,
@@ -48,7 +48,7 @@ export default {
         });
         let nd = res.data.data.user_info[0]
         this.$set(this.stuinfo[0],'detail',nd.name)
-        this.$set(this.stuinfo[1],'detail',nd.email)
+        this.$set(this.stuinfo[1],'detail',nd.userid)
         this.$set(this.stuinfo[2],'detail',nd.tel)
       }
       else {

@@ -9,7 +9,7 @@ import axios from 'axios'
 // 请求拦截器
 const request = axios.create({
   //baseURL: 'http://8.131.98.159:3000',  //这句话加上就没办法访问
-  timeout: 5000 ,  // 请求超时，3000毫秒
+  timeout: 5000 ,  // 请求超时，5000毫秒
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded',
 

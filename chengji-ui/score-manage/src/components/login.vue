@@ -181,7 +181,7 @@ export default {
                     message: '恭喜你，登录成功',
                     type: 'success'
                 });
-                  this.$router.push('/teagui');
+                  this.$router.push('/admgui');
                 }
                 else {
                     this.$message({
