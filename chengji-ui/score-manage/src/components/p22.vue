@@ -3,15 +3,8 @@
   <el-header>成绩查询</el-header>
   <el-main>
     <el-row>
-      <el-col :span="12">
-        <el-select v-model="coursevalue" placeholder="请选择课程">
-          <el-option
-            v-for="item in classname"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value">
-          </el-option>
-        </el-select>
+      <el-col :span="8" >
+        <el-input v-model="coursevalue" placeholder="请输入课程名" style="margin-left:60px"></el-input>
       </el-col>
     <el-button @click="select">查询</el-button>
     </el-row>
@@ -35,31 +28,31 @@
       width="120">
     </el-table-column>
     <el-table-column
-      prop="classno"
+      prop="cno"
       sortable
       label="课程代号"
       width="120">
     </el-table-column>
     <el-table-column
-      prop="classname"
+      prop="cname"
       sortable
       label="课程名"
       width="120">
     </el-table-column>
     <el-table-column
-      prop="point"
+      prop="credit"
       sortable
       label="学分"
       width="120">
     </el-table-column>
     <el-table-column
-      prop="score"
+      prop="grade"
       sortable
       label="成绩"
       width="120">
     </el-table-column>
     <el-table-column
-      prop="jidian"
+      prop="gpa"
       sortable
       label="绩点"
       width="120">
@@ -71,7 +64,7 @@
       width="120">
     </el-table-column>
     <el-table-column
-      prop="name"
+      prop="sname"
       sortable
       label="姓名"
       width="120">
@@ -108,7 +101,11 @@
 </template>
 
 <script>
+import { getscore } from '@/api/getscore'
+import { complain } from '@/api/complain'
+
 export default {
+
   name: 'p22',
 
   methods: {
@@ -116,42 +113,66 @@ export default {
         //会打印出这一行的所有信息，可以根据挑选来传参，通过row.的方式
         console.log(row);
         console.log(row.sno,'sno');
+        complain(row.cno, row.year, row.term).then((res) => {
+          console.log(res.data,'申诉')
+          if(res.data.status == 1) {
+            this.$message({
+                    showClose: true,
+                    message: res.data.data.msg,
+                    type: 'success'
+                });
+          }
+          else {
+            this.$message({
+                    showClose: true,
+                    message: res.data.error_des,
+                    type: 'error'
+                  });
+          }
+        })
+
       },
       select(){
         console.log(this.coursevalue,'course');
-        //调取接口获取数据放入tdata中，然后赋值给tabledata
+        //调取接口获取数据
+          getscore(this.coursevalue).then(
+          res => {
+            console.log(res.data,'按学期查成绩')
+            if(res.data.status == 1){
+              //给数组赋值并且页面刷新显示
+                this.tableData = [];
+                this.tableData = res.data.data.score_info;
+                this.$message({
+                    showClose: true,
+                    message: res.data.data.msg,
+                    type: 'success'
+                });
+            }
+            else {
+              this.$message({
+                    showClose: true,
+                    message: res.data.error_des,
+                    type: 'error'
+                });
+            }
+
+          }
+        )
       }
     },
     data() {
       return {
-        classname: [{
-          value: '全部',
-          label: '全部'
-        }, {
-          value: '数据结构',
-          label: '数据结构'
-        }, {
-          value: '计算机网络',
-          label: '计算机网络'
-        }, {
-          value: '编译原理',
-          label: '编译原理'
-        }, {
-          value: '数据库原理',
-          label: '数据库原理'
-        }],
         coursevalue: '',
-        tdata: [],
         tableData: [{
           year: '2020-2021',
           term: '1',
-          classno: 'zxcv',
-          classname: '数据结构',
-          point: '3.5',
-          score: '95',
-          jidian: '4.33',
+          cno: 'zxcv',
+          cname: '数据结构',
+          credit: '3.5',
+          grade: '95',
+          gpa: '4.33',
           sno: '2017040310',
-          name: '徐超',
+          sname: '徐超',
           college: '信息科学与技术学院',
           pro: '计算机科学与技术',
           class: '计科1702',
@@ -159,13 +180,13 @@ export default {
         {
           year: '2020-2021',
           term: '1',
-          classno: 'zxcv',
-          classname: '数据结构',
-          point: '3.5',
-          score: '95',
-          jidian: '4.33',
+          cno: 'zxcv',
+          cname: '数据结构',
+          credit: '3.5',
+          grade: '95',
+          gpa: '4.33',
           sno: '2017040310',
-          name: '徐超',
+          sname: '徐超',
           college: '信息科学与技术学院',
           pro: '计算机科学与技术',
           class: '计科1702',

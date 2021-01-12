@@ -18,33 +18,33 @@
       width="120">
     </el-table-column>
     <el-table-column
-      prop="classno"
+      prop="cno"
       sortable
       label="课程代号"
       width="120">
     </el-table-column>
     <el-table-column
-      prop="classname"
+      prop="cname"
       sortable
       label="课程名"
       width="120">
     </el-table-column>
     <el-table-column
-      prop="point"
+      prop="credit"
       sortable
       label="学分"
       width="120">
     </el-table-column>
     <el-table-column
-      prop="sno"
+      prop="tno"
       sortable
       label="工号"
       width="120">
     </el-table-column>
     <el-table-column
-      prop="name"
+      prop="tname"
       sortable
-      label="姓名"
+      label="老师姓名"
       width="120">
     </el-table-column>
     <el-table-column
@@ -54,9 +54,15 @@
       width="180">
     </el-table-column>
     <el-table-column
-      prop="pro"
+      prop="tel"
       sortable
-      label="专业"
+      label="电话"
+      width="180">
+    </el-table-column>
+    <el-table-column
+      prop="email"
+      sortable
+      label="邮箱"
       width="180">
     </el-table-column>
   </el-table>
@@ -64,10 +70,26 @@
 </template>
 
 <script>
+import { getCourseTea } from '@/api/getcourse'
+
   export default {
     name: 't12',
     created(){
-      //在这个地方调取接口获取数据，存入tabledata中，在页面创建时就调取接口
+      //在这个地方调取接口获取数据
+    getCourseTea().then(
+      res => {
+        if(res.data.status == 1){
+          console.log(res.data,'老师教课')
+          this.tableData = []
+          this.tableData = res.data.data.course_info
+          this.$message({
+            showClose: true,
+            message: res.data.data.msg,
+            type: 'success'
+          });
+        }
+      }
+    )
     },
     data() {
       return {
@@ -77,25 +99,24 @@
           {
           year: '2020-2021',
           term: '1',
-          classno: 'zxcv',
-          classname: '数据结构',
-          point: '3.5',
+          cno: 'zxcv',
+          cname: '数据结构',
+          credit: '3.5',
           sno: '2017040310',
-          name: '徐超',
+          tname: '徐超',
           college: '信息科学与技术学院',
           pro: '计算机科学与技术',
-        },{
+        }, {
           year: '2020-2021',
           term: '1',
-          classno: 'zxcv',
-          classname: '数据结构',
-          point: '3.5',
+          cno: 'zxcv',
+          cname: '数据结构',
+          credit: '3.5',
           sno: '2017040310',
-          name: '徐超',
+          tname: '徐超',
           college: '信息科学与技术学院',
           pro: '计算机科学与技术',
-        }
-        ],
+        }],
         fits: 'fill',
 
       }

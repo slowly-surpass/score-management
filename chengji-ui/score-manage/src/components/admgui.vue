@@ -75,6 +75,7 @@
 </template>
 
 <script>
+import { logout } from '@/api/logout'
 export default {
   name: "admgui",
   methods: {
@@ -85,7 +86,24 @@ export default {
         cancelButtonText: "取消",
         type: "warning",
       }).then(() => {
-        this.$router.push({ path: "/" });
+        logout().then((res) =>{
+          console.log(res.data)
+          if(res.data.status == 1) {
+            this.$message({
+            showClose: true,
+            message: res.data.data.msg,
+            type: 'success'
+            });
+            this.$router.push('/');
+          }
+          else {
+            this.$message({
+            showClose: true,
+            message: res.data.error_des,
+            type: 'error'
+            });
+          }
+        })
       });
     },
     handleSelect(path){

@@ -9,7 +9,7 @@
       <el-input type="password" v-model="ruleForm.newp" autocomplete="off"></el-input>
     </el-form-item>
     <el-form-item label="确认密码" prop="check">
-      <el-input v-model.number="ruleForm.check"></el-input>
+      <el-input type="password" v-model.number="ruleForm.check"></el-input>
     </el-form-item>
     <el-form-item>
       <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import { codeset } from '@/api/codeset'
   export default {
     name: 't11',
     data() {
@@ -27,13 +28,14 @@
         if (!old) {
           return callback(new Error('密码不能为空'));
         }
+        callback();
       };
       var validatenewp = (rule, newp, callback) => {
         if (newp === '') {
           callback(new Error('请输入新密码'));
         } else {
-          if (this.ruleForm.newp !== '') {
-            this.$refs.ruleForm.validateField('newp');
+          if (this.ruleForm.newp == this.ruleForm.old) {
+            return callback(new Error('新密码不能和旧密码相同'));
           }
           callback();
         }
@@ -41,7 +43,7 @@
       var validatecheck = (rule, check, callback) => {
         if (check === '') {
           callback(new Error('请再次输入新密码'));
-        } else if (check !== this.ruleForm.newp) {
+        } else if (check != this.ruleForm.newp) {
           callback(new Error('两次输入的更改密码不一致!'));
         } else {
           callback();
@@ -70,10 +72,29 @@
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            alert('修改密码成功!');
             //并调取接口返回数据
+            codeset(this.ruleForm.old, this.ruleForm.newp, this.ruleForm.check).then(
+              res => {
+                console.log(res.data,'修改密码')
+                if(res.data.status == 1){
+                this.$message({
+                    showClose: true,
+                    message: '恭喜你，修改密码成功',
+                    type: 'success'
+                })
+                }
+                else{
+                  this.$message({
+                    showClose: true,
+                    message: res.data.error_des,
+                    type: 'error'
+                  });
+                }
+              }
+            )
 
-          } else {
+          }
+          else {
             console.log('修改密码失败!!');
             return false;
           }

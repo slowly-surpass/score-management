@@ -3,11 +3,11 @@
   <el-alert
     title="申诉查询"
     type="info"
-    description="截止到目前为止，你已经提交了如下的申诉"
+    description="截止到目前为止，你的申诉情况如下"
     show-icon>
   </el-alert>
     <div id='myChart' style="width: 100%; height: 400px ;margin-top: 30px"></div>
-  
+
 </div>
 </template>
 
@@ -23,7 +23,7 @@ require('echarts/lib/component/tooltip')
 require('echarts/lib/component/title')
 require('echarts/lib/component/legend')
 
-
+import { appealData } from '@/api/appdetail'
 export default {
   name: 'p4',
 
@@ -34,9 +34,25 @@ export default {
     }
 
   },
+  created() {
+    //调取接口然后调用方法
+    appealData().then(
+      res => {
+        if(res.data.status == 1) {
+          console.log(res.data.data,'申诉数据')
+          this.cg = res.data.data.app_list[0].count
+          this.sb = res.data.data.app_list[1].count
+          this.check = res.data.data.app_list[2].count
+          this.setChart()
+          this.$message({
+            showClose: true,
+            message: res.data.data.msg,
+            type: 'success'
+          });
+        }
+      }
+    )
 
-  mounted() {
-  this.setChart()
   },
 
   methods:{
@@ -58,7 +74,7 @@ export default {
         legend: {
             orient: 'vertical',
             left: 'left',
-            data: ['申诉成功', '待审核', '申诉失败', '搜索引擎']
+            data: ['申诉成功', '申诉失败','待审核']
         },
         series: [
             {
@@ -67,11 +83,9 @@ export default {
                 radius: '55%',
                 center: ['50%', '60%'],
                 data: [
-                    {value: 335, name: '申诉成功'},
-                    {},
-                    {value: 234, name: '待审核'},
-                    {value: 135, name: '申诉失败'},
-                    {}
+                    {value: this.cg, name: '申诉成功'},
+                    {value: this.sb, name: '申诉失败'},
+                    {value: this.check, name: '待审核'},
                 ],
                 emphasis: {
                     itemStyle: {

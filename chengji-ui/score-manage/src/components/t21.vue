@@ -50,25 +50,25 @@
               width="120">
             </el-table-column>
             <el-table-column
-              prop="classname"
+              prop="cname"
               sortable
               label="课程名"
               width="120">
             </el-table-column>
             <el-table-column
-              prop="point"
+              prop="credit"
               sortable
               label="学分"
               width="120">
             </el-table-column>
             <el-table-column
-              prop="score"
+              prop="grade"
               sortable
               label="成绩"
               width="120">
             </el-table-column>
             <el-table-column
-              prop="jidian"
+              prop="gpa"
               sortable
               label="绩点"
               width="120">
@@ -80,7 +80,7 @@
               width="120">
             </el-table-column>
             <el-table-column
-              prop="name"
+              prop="sname"
               sortable
               label="姓名"
               width="120">
@@ -204,12 +204,12 @@
 			                obj.year = v['year']
 			                obj.term = v['term']
 			                obj.cno = v['cno']
-			                obj.classname = v['classname']
-                      obj.point = v['point']
-                      obj.score = v['score']
-                      obj.jidian = v['jidian']
+			                obj.cname = v['cname']
+                      obj.credit = v['credit']
+                      obj.grade = v['grade']
+                      obj.gpa = v['gpa']
                       obj.sno = v['sno']
-                      obj.name = v['name']
+                      obj.sname = v['sname']
                       obj.college = v['college']
                       obj.pro = v['pro']
                       obj.class = v['class']
@@ -235,7 +235,7 @@
       //调取接口传入数据库
       handlePush() {
           //调取接口将数据存入数据库,参数为multileSelection
-
+        console.log(this.multipleSelection,'加入数据库')
       }
 
 

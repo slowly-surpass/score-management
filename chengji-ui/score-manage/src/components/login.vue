@@ -149,7 +149,7 @@ export default {
 
           if(this.loginForm.identify == '2') {
             //调取接口
-            login_stu(this.loginForm.userid,this.loginForm.password).then(
+            login_tea(this.loginForm.userid,this.loginForm.password).then(
               res => {
                 console.log(res)
                 if(res.data.status == 1) {
@@ -172,7 +172,7 @@ export default {
           }
 
           if(this.loginForm.identify == '3') {
-            login_stu(this.loginForm.userid,this.loginForm.password).then(
+            login_adm(this.loginForm.userid,this.loginForm.password).then(
               res => {
                 console.log(res)
                 if(res.data.status == 1) {

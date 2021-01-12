@@ -15,36 +15,36 @@
       prop="term"
       sortable
       label="学期"
-      width="120">
+      width="80">
     </el-table-column>
     <el-table-column
-      prop="classno"
+      prop="cno"
       sortable
       label="课程代号"
       width="120">
     </el-table-column>
     <el-table-column
-      prop="classname"
+      prop="cname"
       sortable
       label="课程名"
       width="120">
     </el-table-column>
     <el-table-column
-      prop="point"
+      prop="credit"
       sortable
       label="学分"
       width="120">
     </el-table-column>
     <el-table-column
-      prop="sno"
+      prop="tno"
       sortable
-      label="学号"
+      label="工号"
       width="120">
     </el-table-column>
     <el-table-column
-      prop="name"
+      prop="tname"
       sortable
-      label="姓名"
+      label="授课教师"
       width="120">
     </el-table-column>
     <el-table-column
@@ -54,26 +54,48 @@
       width="180">
     </el-table-column>
     <el-table-column
-      prop="pro"
+      prop="tel"
       sortable
-      label="专业"
-      width="180">
+      label="联系方式"
+      width="150">
     </el-table-column>
     <el-table-column
-      prop="class"
+      prop="email"
       sortable
-      label="班级"
-      width="120">
+      label="邮箱"
+      width="180">
     </el-table-column>
   </el-table>
   </div>
 </template>
 
 <script>
+import { getCourseStu } from '@/api/getcourse'
   export default {
     name: 'p12',
     created(){
       //在这个地方调取接口获取数据，存入tabledata中
+      getCourseStu().then(
+        res => {
+          if(res.data.status == 1){
+            console.log(res.data,'学生课程查询')
+            this.tableData = []
+            this.tableData = res.data.data.course_info
+            this.$message({
+                    showClose: true,
+                    message: res.data.data.msg,
+                    type: 'success'
+            });
+          }
+          else {
+            this.$message({
+              showClose: true,
+              message: res.data.error_des,
+              type: 'error'
+            });
+          }
+        }
+      )
     },
     data() {
       return {
@@ -105,7 +127,7 @@
         }
         ],
         fits: 'fill',
-  
+
       }
     }
   }

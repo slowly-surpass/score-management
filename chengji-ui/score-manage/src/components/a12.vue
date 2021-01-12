@@ -7,6 +7,9 @@
 </template>
 
 <script>
+
+import { userinfo } from '@/api/userinfo'
+
 export default {
   name: 'a12',
   data() {
@@ -34,9 +37,28 @@ export default {
   },
   created() {
     //调取接口获取数据
-    this.admname = this.$root.admname
-    this.phone = this.$root.phone
-    this.email = this.$root.email
+    userinfo().then(
+      res => {
+        console.log(res.data.data.user_info,'个人信息');
+        if(res.data.status == 1) {
+          this.$message({
+          showClose: true,
+          message: '恭喜你，获取个人信息成功',
+          type: 'success'
+        });
+        let nd = res.data.data.user_info[0]
+        this.$set(this.stuinfo[0],'detail',nd.name)
+        this.$set(this.stuinfo[1],'detail',nd.email)
+        this.$set(this.stuinfo[2],'detail',nd.tel)
+      }
+      else {
+          this.$message({
+            showClose: true,
+            message: res.data.error_des,
+            type: 'error'
+          });
+        }
+    })
   }
 }
 </script>

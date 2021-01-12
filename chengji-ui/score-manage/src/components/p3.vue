@@ -23,6 +23,7 @@ require('echarts/lib/component/tooltip')
 require('echarts/lib/component/title')
 require('echarts/lib/component/legend')
 
+import { getgpa } from '@/api/getgpa'
 
 export default {
 
@@ -35,6 +36,30 @@ export default {
     }
 
   },
+  created(){
+    getgpa().then(
+        res => {
+          let val = res.data.data.score_info
+          console.log(val,'成绩分布')
+          if(res.data.status == 1) {
+
+            this.linedata = [],
+            this.piedata = [],
+
+            this.linedata.push(val[0].count,val[1].count,val[2].count,val[3].count,val[4].count)
+            this.piedata.push(val[0].count,val[1].count,val[2].count,val[3].count,val[4].count)
+            this.setChart()
+            this.setChart2()
+
+            this.$message({
+                    showClose: true,
+                    message: res.data.data.msg,
+                    type: 'success'
+            });
+          }
+        }
+      )
+  },
 mounted() {
   this.setChart()
   this.setChart2()
@@ -45,24 +70,21 @@ mounted() {
     setChart() {
       let myChart = echarts.init(document.getElementById('myChart'))
       //此处可以先设置方法，
-      let data = [5, 20, 36, 10, 10, 20]
       //data数据调取接口获得
-      //  that.$http.post('接口地址',{
-      //           //参数
-      //       }).then(res=>{
+
 
         // 绘制图表
         myChart.setOption({
             text: '学习情况' ,
             tooltip: {},
             xAxis: {
-                data: ["A+科目","A科目","A-科目","B+科目","B-科目","B科目"]
+                data: ["4.33","4.0","3.67","3.33","3.00"]
             },
             yAxis: {},
             series: [{
                 name: '数量',
                 type: 'bar',
-                data: data
+                data: this.linedata
             }]
         });
 
@@ -70,13 +92,13 @@ mounted() {
     setChart2() {
       let myChart2 = echarts.init(document.getElementById('myChart2'))
       let data = {
-        name : ['A科目', 'B科目', 'C科目', 'D科目', 'E科目'],
+        name :  ["A+科目","A科目","A-科目","B+科目","B科目",],
         detail:  [
-                    {value: 335, name: 'A科目'},
-                    {value: 310, name: 'B科目'},
-                    {value: 234, name: 'C科目'},
-                    {value: 135, name: 'D科目'},
-                    {value: 1548, name: 'E科目'}
+                    {value: this.piedata[0], name: 'A+科目'},
+                    {value: this.piedata[1], name: 'A科目'},
+                    {value: this.piedata[2], name: 'A-科目'},
+                    {value: this.piedata[3], name: 'B+科目'},
+                    {value: this.piedata[4], name: 'B科目'},
                 ],
       }
 
@@ -96,7 +118,7 @@ mounted() {
         legend: {
             orient: 'vertical',
             left: 'left',
-            data: ['A科目', 'B科目', 'C科目', 'D科目', 'E科目']
+            data: ['A+科目', 'A科目', 'A-科目', 'B+科目', 'B科目']
         },
         series: [
             {

@@ -1,0 +1,121 @@
+Date : 2021-01-12 18:50:10
+Directory : c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage
+Total : 75 files,  22833 codes, 285 comments, 658 blanks, all 23776 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JSON       |          2 |     17,492 |          0 |          2 |     17,494 |
+| Vue.js     |         24 |      3,334 |        103 |        288 |      3,725 |
+| JavaScript |         36 |      1,082 |        137 |        178 |      1,397 |
+| SCSS       |          9 |        816 |         44 |        178 |      1,038 |
+| XML        |          2 |         78 |          0 |          0 |         78 |
+| Markdown   |          1 |         20 |          0 |         11 |         31 |
+| HTML       |          1 |         11 |          1 |          1 |         13 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                          | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                             |         75 |     22,833 |        285 |        658 |     23,776 |
+| build                                                                                         |          7 |        466 |         40 |         55 |        561 |
+| config                                                                                        |          4 |         55 |         32 |         21 |        108 |
+| src                                                                                           |         50 |      4,603 |        175 |        538 |      5,316 |
+| src\api                                                                                       |         12 |        212 |         11 |         47 |        270 |
+| src\assets                                                                                    |         11 |        894 |         44 |        178 |      1,116 |
+| src\assets\images                                                                             |          2 |         78 |          0 |          0 |         78 |
+| src\assets\styles                                                                             |          9 |        816 |         44 |        178 |      1,038 |
+| src\components                                                                                |         23 |      3,316 |        103 |        285 |      3,704 |
+| src\router                                                                                    |          1 |        128 |          0 |         15 |        143 |
+| src\utils                                                                                     |          1 |         19 |         14 |          6 |         39 |
+| test                                                                                          |          7 |        142 |         25 |         24 |        191 |
+| test\e2e                                                                                      |          4 |        103 |         22 |         19 |        144 |
+| test\e2e\custom-assertions                                                                    |          1 |         18 |          8 |          2 |         28 |
+| test\e2e\specs                                                                                |          1 |         12 |          5 |          3 |         20 |
+| test\unit                                                                                     |          3 |         39 |          3 |          5 |         47 |
+| test\unit\specs                                                                               |          1 |         10 |          0 |          2 |         12 |
++-----------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                      | language   | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\.eslintrc.js                               | JavaScript |         20 |          8 |          2 |         30 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\.postcssrc.js                              | JavaScript |          7 |          2 |          2 |         11 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\README.md                                  | Markdown   |         20 |          0 |         11 |         31 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\build\build.js                             | JavaScript |         35 |          0 |          7 |         42 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\build\check-versions.js                    | JavaScript |         45 |          0 |         10 |         55 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\build\utils.js                             | JavaScript |         80 |          5 |         17 |        102 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\build\vue-loader.conf.js                   | JavaScript |         21 |          0 |          2 |         23 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\build\webpack.base.conf.js                 | JavaScript |         85 |          4 |          4 |         93 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\build\webpack.dev.conf.js                  | JavaScript |         82 |          7 |          7 |         96 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\build\webpack.prod.conf.js                 | JavaScript |        118 |         24 |          8 |        150 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\config\dev.env.js                          | JavaScript |          6 |          0 |          2 |          8 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\config\index.js                            | JavaScript |         39 |         32 |         16 |         87 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\config\prod.env.js                         | JavaScript |          4 |          0 |          1 |          5 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\config\test.env.js                         | JavaScript |          6 |          0 |          2 |          8 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\index.html                                 | HTML       |         11 |          1 |          1 |         13 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\package-lock.json                          | JSON       |     17,397 |          0 |          1 |     17,398 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\package.json                               | JSON       |         95 |          0 |          1 |         96 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\App.vue                                | Vue.js     |         18 |          0 |          3 |         21 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\api\appdetail.js                       | JavaScript |          7 |          1 |          2 |         10 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\api\changegrade.js                     | JavaScript |         17 |          1 |          2 |         20 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\api\codeset.js                         | JavaScript |         14 |          0 |          4 |         18 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\api\complain.js                        | JavaScript |         15 |          1 |          2 |         18 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\api\getcourse.js                       | JavaScript |         16 |          0 |          3 |         19 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\api\getgpa.js                          | JavaScript |          9 |          1 |          4 |         14 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\api\getscore.js                        | JavaScript |         25 |          2 |          6 |         33 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\api\login.js                           | JavaScript |         38 |          1 |         12 |         51 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\api\logout.js                          | JavaScript |          9 |          1 |          2 |         12 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\api\teaappeal.js                       | JavaScript |         38 |          1 |          5 |         44 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\api\teagetscore.js                     | JavaScript |         15 |          1 |          2 |         18 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\api\userinfo.js                        | JavaScript |          9 |          1 |          3 |         13 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\assets\images\dark.svg                 | XML        |         39 |          0 |          0 |         39 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\assets\images\light.svg                | XML        |         39 |          0 |          0 |         39 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\assets\styles\btn.scss                 | SCSS       |         83 |          0 |         17 |        100 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\assets\styles\element-ui.scss          | SCSS       |         64 |          6 |         15 |         85 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\assets\styles\element-variables.scss   | SCSS       |         13 |         10 |          9 |         32 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\assets\styles\index.scss               | SCSS       |        154 |          2 |         36 |        192 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\assets\styles\mixin.scss               | SCSS       |         56 |          0 |         11 |         67 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\assets\styles\ruoyi.scss               | SCSS       |        197 |         12 |         32 |        241 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\assets\styles\sidebar.scss             | SCSS       |        180 |          6 |         41 |        227 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\assets\styles\transition.scss          | SCSS       |         35 |          4 |         10 |         49 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\assets\styles\variables.scss           | SCSS       |         34 |          4 |          7 |         45 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\components\a11.vue                     | Vue.js     |        110 |          1 |          5 |        116 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\components\a12.vue                     | Vue.js     |         69 |          1 |          9 |         79 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\components\a21.vue                     | Vue.js     |        191 |         13 |         12 |        216 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\components\a22.vue                     | Vue.js     |        183 |         13 |         13 |        209 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\components\a3.vue                      | Vue.js     |         24 |          0 |         10 |         34 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\components\admgui.vue                  | Vue.js     |        141 |          4 |         17 |        162 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\components\login.vue                   | Vue.js     |        200 |          9 |         28 |        237 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\components\p11.vue                     | Vue.js     |        109 |          2 |          6 |        117 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\components\p12.vue                     | Vue.js     |        134 |          2 |          4 |        140 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\components\p13.vue                     | Vue.js     |         88 |          1 |         11 |        100 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\components\p21.vue                     | Vue.js     |        254 |          6 |         11 |        271 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\components\p22.vue                     | Vue.js     |        205 |          3 |          9 |        217 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\components\p3.vue                      | Vue.js     |        121 |          7 |         24 |        152 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\components\p4.vue                      | Vue.js     |         91 |          5 |         19 |        115 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\components\stugui.vue                  | Vue.js     |        155 |          4 |         20 |        179 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\components\t11.vue                     | Vue.js     |        110 |          1 |          4 |        115 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\components\t12.vue                     | Vue.js     |        123 |          2 |          6 |        131 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\components\t13.vue                     | Vue.js     |         80 |          2 |          8 |         90 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\components\t21.vue                     | Vue.js     |        224 |         13 |          9 |        246 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\components\t22.vue                     | Vue.js     |        282 |          3 |         17 |        302 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\components\t3.vue                      | Vue.js     |         20 |          0 |          8 |         28 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\components\t4.vue                      | Vue.js     |        247 |          8 |         16 |        271 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\components\teagui.vue                  | Vue.js     |        155 |          3 |         19 |        177 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\main.js                                | JavaScript |         16 |          3 |          4 |         23 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\router\index.js                        | JavaScript |        128 |          0 |         15 |        143 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\src\utils\request.js                       | JavaScript |         19 |         14 |          6 |         39 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\test\e2e\custom-assertions\elementCount.js | JavaScript |         18 |          8 |          2 |         28 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\test\e2e\nightwatch.conf.js                | JavaScript |         40 |          1 |          6 |         47 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\test\e2e\runner.js                         | JavaScript |         33 |          8 |          8 |         49 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\test\e2e\specs\test.js                     | JavaScript |         12 |          5 |          3 |         20 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\test\unit\jest.conf.js                     | JavaScript |         27 |          3 |          1 |         31 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\test\unit\setup.js                         | JavaScript |          2 |          0 |          2 |          4 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\test\unit\specs\HelloWorld.spec.js         | JavaScript |         10 |          0 |          2 |         12 |
+| c:\Users\ASUS\Desktop\rjsx\chengji-ui\score-manage\vue.config.js                              | JavaScript |         17 |          2 |          2 |         21 |
+| Total                                                                                         |            |     22,833 |        285 |        658 |     23,776 |
++-----------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

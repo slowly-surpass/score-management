@@ -1,6 +1,7 @@
 import request from '@/utils/request'
 
 var qs = require('qs');
+
 //学生登陆
 export function login_stu(userid, password) {
   const data = {
@@ -25,7 +26,7 @@ export function login_tea(userid, password) {
   return request({
     url: '/api/login_tea',
     method: 'post',
-    data: data
+    data: qs.stringify(data)
   },
   console.log(data,'test'))
 }
@@ -39,7 +40,7 @@ export function login_adm(userid, password) {
   return request({
     url: '/api/login_admin',
     method: 'post',
-    data: data
+    data: qs.stringify(data)
   })
 }
 
